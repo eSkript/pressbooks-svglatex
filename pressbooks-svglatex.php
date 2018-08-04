@@ -41,21 +41,31 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-pressbooks-svglatex-activator.php
  */
-function activate_pressbooks_svglatex() {
+function activate_pressbooks_svglatex($networkwide) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-svglatex-activator.php';
-	Pressbooks_Svglatex_Activator::activate();
+	Pressbooks_Svglatex_Activator::activate($networkwide);
+}
+
+/**
+ * The code that runs during when a new blog is created
+ * This action is documented in includes/class-pressbooks-svglatex-activator.php
+ */
+function activate_new_blog_pressbooks_svglatex($blog_id) {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-svglatex-activator.php';
+	Pressbooks_Svglatex_Activator::activate_new_blog($blog_id);
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-pressbooks-svglatex-deactivator.php
  */
-function deactivate_pressbooks_svglatex() {
+function deactivate_pressbooks_svglatex($networkwide) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-svglatex-deactivator.php';
-	Pressbooks_Svglatex_Deactivator::deactivate();
+	Pressbooks_Svglatex_Deactivator::deactivate($networkwide);
 }
 
 register_activation_hook( __FILE__, 'activate_pressbooks_svglatex' );
+add_action('wpmu_new_blog', 'activate_new_blog_pressbooks_svglatex', 8, 1);
 register_deactivation_hook( __FILE__, 'deactivate_pressbooks_svglatex' );
 
 /**
