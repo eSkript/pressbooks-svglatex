@@ -170,8 +170,9 @@ class Pressbooks_Svglatex {
 
 		$plugin_public = new Pressbooks_Svglatex_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'pb_latex_renderers', $plugin_public, 'append_render_methode' );
+		$this->loader->add_filter( 'pb_require_latex', $plugin_public, 'require_class');
+		$this->loader->add_filter( 'pb_add_latex_renderer_option', $plugin_public, 'add_option');
 
 	}
 
