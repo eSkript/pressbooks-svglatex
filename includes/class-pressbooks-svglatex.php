@@ -173,7 +173,7 @@ class Pressbooks_Svglatex {
 		$this->loader->add_filter( 'pb_latex_renderers', $plugin_public, 'append_render_methode' );
 		$this->loader->add_filter( 'pb_require_latex', $plugin_public, 'require_class');
 		$this->loader->add_filter( 'pb_add_latex_renderer_option', $plugin_public, 'add_option');
-		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_filename', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_filename', 10, 4);
+		$this->loader->add_filter( 'pb_epub201_fetchandsaveuniqueimage_filename', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_filename', 10, 4);
 
 	}
 

@@ -91,7 +91,7 @@ class Pressbooks_Svglatex_Public {
 	/**
 	 * Filter image filename
 	 *
-	 * @hook	pb_epub201_fetchAndSaveUniqueImage_filename
+	 * @hook	pb_epub201_fetchandsaveuniqueimage_filename
 	 * @since    1.0.0
 	 * @param	string	$filename	the current filename
 	 * @param	string	$ori_filename	the original filename
