@@ -39,7 +39,7 @@ class SVG_Latex {
             $url = ESCRIPT_LATEX_URL;
         }else{
             $url = ( is_ssl() ? 'https' : 'http' ) . '://s0.wp.com/latex.php';
-        }
+		}
 		$this->url = add_query_arg(
 			urlencode_deep( array(
 				'latex' => $this->latex,

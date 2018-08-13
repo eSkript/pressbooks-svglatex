@@ -67,8 +67,8 @@ class Pressbooks_Svglatex {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'PRESSBOOKS_SVGLATEX_VERSION' ) ) {
+			$this->version = PRESSBOOKS_SVGLATEX_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -173,6 +173,7 @@ class Pressbooks_Svglatex {
 		$this->loader->add_filter( 'pb_latex_renderers', $plugin_public, 'append_render_methode' );
 		$this->loader->add_filter( 'pb_require_latex', $plugin_public, 'require_class');
 		$this->loader->add_filter( 'pb_add_latex_renderer_option', $plugin_public, 'add_option');
+		$this->loader->add_filter( 'pb_epub201_fetchAndSaveUniqueImage_filename', $plugin_public, 'filter_pb_epub201_fetchAndSaveUniqueImage_filename', 10, 4);
 
 	}
 
